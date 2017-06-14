@@ -1,12 +1,9 @@
 package com.jnu.damon;
 
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class Main {
 
@@ -23,7 +20,75 @@ public class Main {
         //ArrayList
 //        demoList();
         //HashMap
-        demoMap();
+//        demoMap();
+        //Set
+//        demoSet();
+        //Exception
+//        demoException();
+        //Random,Time
+        demoFunction();
+
+    }
+
+    public static void demoFunction(){
+        Random random = new Random();
+        print(1,random.nextBoolean());
+        print(2,random.nextInt());
+
+        random.setSeed(1);
+        print(3,random.nextInt(1000));
+
+        List<Integer> array = Arrays.asList(new Integer[]{1,2,3,4,5});
+        Collections.shuffle(array);
+        print(4,array);
+
+        Date date = new Date();
+        print(5,date);
+        print(6,date.getTime());
+
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        print(7,df.format(date));
+
+        print(8,UUID.randomUUID());//随机生成一个字符串
+        print(9,Math.log(10));
+        print(10,Math.min(2,4));
+        print(11,Math.max(4,10));
+        print(12,Math.ceil(2.2));//往前进一位
+        print(13,Math.floor(2.2));//后移一位
+
+
+    }
+    public static void demoException(){
+        try{
+            int k = 2;
+            k = k/0;
+            if(k == 2){
+                throw new Exception("我是故意的");
+            }
+        }catch (Exception e){
+            print(2,e.getMessage());
+        }finally {
+            print(3,"finally");
+        }
+    }
+    public static void demoSet(){
+        Set<String> strSet = new HashSet<>();
+        for(int i = 0; i < 3; i++){
+            strSet.add(String.valueOf(i));
+        }
+        print(1,strSet);
+
+        strSet.remove(String.valueOf(1));
+        print(2,strSet);
+        print(3,strSet.contains(String.valueOf(1)));
+        print(4,strSet.isEmpty());
+        print(5,strSet.size());
+
+        strSet.addAll(Arrays.asList(new String[]{"A","B","C"}));
+        print(6,strSet);
+        for(String value : strSet){
+            print(7,value);
+        }
     }
 
     public static void demoMap(){
@@ -31,6 +96,21 @@ public class Main {
         for(int i = 0; i < 4; i++){
             map.put(String.valueOf(i),String.valueOf(i * i));
         }
+        print(1,map);
+
+        for(Map.Entry<String,String> entry : map.entrySet()){
+            print(2,entry.getKey() + "--" + entry.getValue());
+        }
+
+        print(3,map.values());
+        print(4,map.keySet());
+
+        print(5,map.get("3"));
+        print(6,map.containsKey("A"));
+        print(7,map.containsKey("3"));
+
+        map.replace("3","27");
+        print(8,map.get("3"));
 
     }
     public static void demoList(){
