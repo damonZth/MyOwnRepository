@@ -11,7 +11,9 @@ public interface Queue<T> {
 
     int size();//求队列的大小、长度
 
-    boolean inEmpty();//判断队列是否为空
+    boolean isEmpty();//判断队列是否为空
+
+    boolean isFull();//判断队列是否满
 
     boolean add(T data);//入队操作，成功则返回true，否则返回false
 

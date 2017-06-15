@@ -14,18 +14,17 @@ public class ArrayQueue<T> implements Queue<T>{
      * 该构造器，接收一个数组容量参数，产生一个容量为capacity的简单数组，用来实现顺序队列
      * 简单数组实现的顺序队列
      * 初始化队列，队首元素下标和队尾元素下标 front = rear = -1;表示队列为空
+     *
+     * 泛型数组不能通过 T[] a = new T[length];创建，
+     * 而是通过 T[] a = (T[])new Object[length];来创建，
+     * 因为对于没有限定的类型变量，类型擦除后用Object代替T，变为 Object[] a = (Object[]) new Object[length];
+     * 这样，编译器是可以通过的！！
      * @param capacity 数组容量
      */
     public ArrayQueue(int capacity){
         this.capacity = capacity;
         front = -1;
         rear = -1;
-        /*
-         * 泛型数组不能通过 T[] a = new T[length];创建，
-         * 而是通过 T[] a = (T[])new Object[length];来创建，
-         * 因为对于没有限定的类型变量，类型擦除后用Object代替T，变为 Object[] a = (Object[]) new Object[length];
-         * 这样，编译器是可以通过的！！
-         */
         array = (T[])new Object[capacity];
     }
 
@@ -36,7 +35,7 @@ public class ArrayQueue<T> implements Queue<T>{
      */
     @Override
     public int size() {
-        return rear - front;
+        return rear - front + 1;
     }
 
     /**
@@ -72,14 +71,22 @@ public class ArrayQueue<T> implements Queue<T>{
         if(isFull()){
             return false;
         }else{
-            array[rear+1] = data;
-            rear = rear + 1;
             if(front == -1){
-                //如果入队的是第一个元素，则需要同时改变队首下标和队尾下标
-                front = rear;
+                front = rear = 0;
+                array[front] = data;
+                array[rear] = data;
+//                return true;
+            }else{
+                array[rear+1] = data;
+                rear = rear + 1;
+//                return true;
             }
+            return true;
+//            if(front == -1){
+//                //如果入队的是第一个元素，则需要同时改变队首下标和队尾下标
+//                front = rear;
+//            }
         }
-        return false;
     }
 
     /**
@@ -92,11 +99,14 @@ public class ArrayQueue<T> implements Queue<T>{
         if(isFull()){
             throw new ArrayIndexOutOfBoundsException();
         }
-        array[rear+1] = data;
-        rear = rear + 1;
         if(front == -1){
-            //如果入队的是第一个元素，则需要同时改变队首下标和队尾下标
-            front = rear;
+            front = rear = 0;
+            array[front] = data;
+            array[rear] = data;
+
+        }else{
+            array[rear+1] = data;
+            rear = rear + 1;
         }
         return true;
     }
@@ -115,7 +125,7 @@ public class ArrayQueue<T> implements Queue<T>{
     }
 
     /**
-     * 返回队首元素，不执行删除操作，若队列为空，则抛出异常
+     * 出队操作：返回队首元素，不执行删除操作，若队列为空，则抛出异常
      * @return
      */
     @Override
@@ -174,6 +184,6 @@ public class ArrayQueue<T> implements Queue<T>{
             //移除队首元素后，需要将数组中的后序元素往前移动一位
             array[i] = array[i + 1];
         }
-        rear = rear -  1;//当所有元素都向前移动一位后，队尾指针也许要自减一位。
+        rear = rear -  1;//当所有元素都向前移动一位后，队尾指针也需要自减一位。
     }
 }
