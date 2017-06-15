@@ -43,13 +43,13 @@ public class LinkQueue<T> implements Queue<T>{
 
     @Override
     public boolean add(T data) {
-//        SingleNode<T> node = new SingleNode<>(data);
+        SingleNode<T> node = new SingleNode<>(data);
         if(this.front == null){
-            this.front.setData(data);
+            this.front = node;
         }else{
-           this.rear.getNext().setData(data);
+           this.rear.setNext(node);
         }
-        this.rear = this.rear.getNext();
+        this.rear = node;
         size ++;
         return true;
     }
@@ -62,12 +62,13 @@ public class LinkQueue<T> implements Queue<T>{
         if(isFull()){
             throw new NullPointerException();
         }
+        SingleNode<T> node = new SingleNode<>(data);
         if(this.front == null){
-            this.front.setData(data);
+            this.front = node;
         }else{
-            this.rear.getNext().setData(data);
+            this.rear.setNext(node);
         }
-        this.rear = this.rear.getNext();
+        this.rear = node;
         size ++;
         return true;
     }
