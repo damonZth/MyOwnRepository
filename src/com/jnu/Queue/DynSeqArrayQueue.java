@@ -1,4 +1,4 @@
-package com.jnu.DataStruct;
+package com.jnu.Queue;
 
 /**
  * Created by Damon on 2017/6/15.

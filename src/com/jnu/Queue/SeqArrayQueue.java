@@ -1,4 +1,6 @@
-package com.jnu.DataStruct;
+package com.jnu.Queue;
+
+import com.jnu.Queue.Queue;
 
 /**
  * Created by Damon on 2017/6/15.
@@ -10,7 +12,7 @@ package com.jnu.DataStruct;
  * 当进行出队操作是，front = (front + 1)%length，也就是rear向后移动一位
  * 当队列为满时，front=(rear+1)%size，此时队列中仍然有一个空的位置，主要是用来避免与队列为空的条件相同
  */
-public class SeqArrayQueue<T> implements Queue<T>{
+public class SeqArrayQueue<T> implements Queue<T> {
     private int capacity;//数组容量
     private int front;//队首下标
     private int rear;//队尾下标

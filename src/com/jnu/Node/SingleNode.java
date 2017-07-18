@@ -1,6 +1,4 @@
-package com.jnu.DataStruct;
-
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
+package com.jnu.Node;
 
 /**
  * Created by Damon on 2017/6/14.

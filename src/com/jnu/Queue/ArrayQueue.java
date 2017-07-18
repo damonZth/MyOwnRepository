@@ -1,10 +1,10 @@
-package com.jnu.DataStruct;
+package com.jnu.Queue;
 
 /**
  * Created by Damon on 2017/6/14.
  * 采用简单数组实现顺序队列：由队列的定义可知，只能在队列的一端进行入队操作，而在另一端进行出队操作。
  */
-public class ArrayQueue<T> implements Queue<T>{
+public class ArrayQueue<T> implements Queue<T> {
     private int front;//队首元素下标,队列非空时，front==0；
     private int rear;//队尾元素下标
     private int capacity;//数组容量

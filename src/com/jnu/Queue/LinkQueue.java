@@ -1,4 +1,6 @@
-package com.jnu.DataStruct;
+package com.jnu.Queue;
+
+import com.jnu.Node.SingleNode;
 
 /**
  * Created by Damon on 2017/6/15.
@@ -10,7 +12,7 @@ package com.jnu.DataStruct;
  * 当进行出队操作时，若队列不为空，获取队首元素节点，并删除队首节点元素，更新front指针指向front.next
  * 当第一个元素入队或者最后一个元素出队时，同时更新front指针和rear指针的指向第一个元素节点
  */
-public class LinkQueue<T> implements Queue<T>{
+public class LinkQueue<T> implements Queue<T> {
     private SingleNode<T> front;
     private SingleNode<T> rear;
     private int size;
