@@ -1,5 +1,7 @@
 package com.jnu.DataStruct;
 
+import com.jnu.List.SeqList;
+
 /**
  * Created by Damon on 2017/6/15.
  *
@@ -95,6 +97,21 @@ public class Main {
 //        print(7,daq.isFull());
 //        print(8,daq.size());
         System.out.println("测试");
+
+        SeqList<String> list = new SeqList<>(5);
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("a");
+        list.add("m");
+        System.out.println( list.toString());
+        list.add(2,"n");
+
+        System.out.println( list.toString());
+        System.out.println( list.get(2));
+        System.out.println( list.isEmptly());
+
+
 
     }
     /**

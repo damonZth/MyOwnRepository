@@ -6,8 +6,8 @@ package com.jnu.Node;
  * 节点只有一个指向后继节点的指针
  */
 public class SingleNode<T> {
-    private T data;//节点元素的数据
-    private SingleNode<T> next;//后即节点
+    public T data;//节点元素的数据
+    public SingleNode<T> next;//后继节点
 
     public void setData(T data){
         this.data = data;
@@ -35,6 +35,10 @@ public class SingleNode<T> {
         //带节点数据和后继节点的构造器
         this.data = data;
         this.next = next;
+    }
+
+    public String toString(){
+        return this.data.toString();
     }
 
 }
