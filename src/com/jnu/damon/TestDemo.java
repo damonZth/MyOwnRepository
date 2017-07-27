@@ -1,8 +1,8 @@
 package com.jnu.damon;
 
-import javax.swing.plaf.FontUIResource;
-import java.util.concurrent.Future;
-import java.util.concurrent.FutureTask;
+import com.jnu.threadDemo.MyThread;
+import com.jnu.threadDemo.MyThread1;
+import com.jnu.threadDemo.MyThread3;
 
 /**
  * Created by Damon on 2017/7/24.
@@ -23,9 +23,9 @@ public class TestDemo {
 
         //new Outer().fun_3("world2");
 
-        MyThread myThread1 = new MyThread("线程A");
-        MyThread myThread2 = new MyThread("线程B");
-        MyThread myThread3 = new MyThread("线程C");
+//        MyThread myThread1 = new MyThread("线程A");
+//        MyThread myThread2 = new MyThread("线程B");
+//        MyThread myThread3 = new MyThread("线程C");
 //        myThread1.run();
 //        myThread2.run();
 //        myThread3.run();
@@ -35,9 +35,9 @@ public class TestDemo {
 //        myThread2.start();
 //        myThread3.start();
 
-        MyThread1 myThread11 = new MyThread1("线程D");
-        MyThread1 myThread12 = new MyThread1("线程E");
-        MyThread1 myThread13 = new MyThread1("线程F");
+//        MyThread1 myThread11 = new MyThread1("线程D");
+//        MyThread1 myThread12 = new MyThread1("线程E");
+//        MyThread1 myThread13 = new MyThread1("线程F");
         //用接口实现的线程主体类，想要启动线程，需要使用Thread来完成
         //创建新的线程类，将线程实例加载到线程类中，使用线程类启动
 //        Thread thread1 = new Thread(myThread11);
@@ -74,9 +74,9 @@ public class TestDemo {
 //        thread1.sleep(10);
 //        thread2.start();
 
-        MyThread3 thread3 = new MyThread3();
-        new Thread(thread3,"线程A").start();
-        new Thread(thread3,"线程B").start();
-        new Thread(thread3,"线程C").start();
+//        MyThread3 thread3 = new MyThread3();
+//        new Thread(thread3,"线程A").start();
+//        new Thread(thread3,"线程B").start();
+//        new Thread(thread3,"线程C").start();
     }
 }

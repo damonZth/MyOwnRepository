@@ -1,4 +1,4 @@
-package com.jnu.damon;
+package com.jnu.threadDemo;
 /**
  * Created by Damon on 2017/7/25.
  *

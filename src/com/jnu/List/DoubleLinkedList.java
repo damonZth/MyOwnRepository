@@ -48,6 +48,11 @@ public class DoubleLinkedList<T> implements List {
     }
 
     @Override
+    public boolean set(int index, Object data) {
+        return false;
+    }
+/*
+    @Override
     public boolean set(int index, T data) {
         if(headNode ==null || index < 0){
             return false;
@@ -64,10 +69,11 @@ public class DoubleLinkedList<T> implements List {
         }
         return false;
     }
+    */
 
     @Override
     public boolean add(int index, Object data) {
-
+        return false;
     }
 
     @Override
